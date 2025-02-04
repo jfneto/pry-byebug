@@ -1,6 +1,6 @@
-# CHANGELOG
+## Unreleased
 
-## Master (Unreleased)
+- Rename primary branch from `master` to `main`.
 
 ## 3.10.1 (2022-08-16)
 
