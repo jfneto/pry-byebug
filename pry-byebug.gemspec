@@ -21,6 +21,6 @@ Gem::Specification.new do |gem|
   # Dependencies
   gem.required_ruby_version = ">= 2.7.0"
 
-  gem.add_runtime_dependency "byebug", ">= 11.0"
   gem.add_runtime_dependency "pry", ">= 0.13"
+  gem.add_runtime_dependency "runger_byebug", ">= 11.0"
 end

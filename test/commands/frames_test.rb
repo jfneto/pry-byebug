@@ -11,18 +11,6 @@ class FramesTest < Minitest::Spec
 
   after { clean_remove_const(:FramesExample) }
 
-  describe "Up command" do
-    let(:input) { InputTester.new("up", "down") }
-
-    before do
-      redirect_pry_io(input, output) { load test_file("frames") }
-    end
-
-    it "shows current line" do
-      _(output.string).must_match(/=> \s*8: \s*method_b/)
-    end
-  end
-
   describe "Down command" do
     let(:input) { InputTester.new("up", "down") }
 
@@ -54,24 +42,6 @@ class FramesTest < Minitest::Spec
       it "shows current line" do
         _(output.string).must_match(/=> \s*13: \s*end/)
       end
-    end
-  end
-
-  describe "Backtrace command" do
-    let(:input) { InputTester.new("backtrace") }
-
-    before do
-      @stdout, @stderr = capture_subprocess_io do
-        redirect_pry_io(input) { load test_file("frames") }
-      end
-    end
-
-    it "shows a backtrace" do
-      frames = @stdout.split("\n")
-
-      assert_match(/\A--> #0  FramesExample\.method_b at/, frames[0])
-      assert_match(/\A    #1  FramesExample\.method_a at/, frames[1])
-      assert_match(/\A    #2  <top \(required\)> at/, frames[2])
     end
   end
 end

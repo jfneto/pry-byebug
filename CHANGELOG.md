@@ -1,6 +1,7 @@
 ## Unreleased
 
 - Rename primary branch from `master` to `main`.
+- Depend upon `runger_byebug` rather than `byebug`.
 
 ## 3.10.1 (2022-08-16)
 
