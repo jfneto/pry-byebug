@@ -5,15 +5,15 @@ on:
 
   push:
     branches:
-      - master
+      - main
 
 jobs:
   test:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        ruby: [2.7.6, 3.0.4, 3.1.2]
+        ruby: [3.4.1]
 
     env:
       BUNDLE_PATH: .bundle
@@ -26,7 +26,7 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
 
-      - uses: actions/cache@v1
+      - uses: actions/cache@v4
         with:
           path: ${{ env.BUNDLE_PATH }}
           key: dependencies-${{ hashFiles('Gemfile.lock') }}

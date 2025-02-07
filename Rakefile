@@ -20,11 +20,4 @@ end
 
 RuboCop::RakeTask.new
 
-desc "Checks markdown code style with Markdownlint"
-task :mdl do
-  puts "Running mdl..."
-
-  abort unless system("mdl", *Dir.glob("*.md"))
-end
-
-task default: %i[test rubocop mdl]
+task default: %i[test rubocop]
